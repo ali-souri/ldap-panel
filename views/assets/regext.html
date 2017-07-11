@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>rejex</title>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#emailbutton").click(function(){
+			var value = $("#emailinput").val();
+			console.log("Email is "+validateEmail(value));
+		});
+		$("#phonebutton").click(function(){
+			var value = $("#phoneinput").val();
+			console.log("Phone is "+validatePhone(value));
+		});
+	});
+	function validatePhone(phone) { 
+    var rev = /^09\d{2}\s*?\d{3}\s*?\d{4}$/;
+    
+    return rev.test(phone);
+	};
+	function validateEmail(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+	}; 
+</script>
+</head>
+<body>
+	Email:<input id="emailinput" type="text"/><button id="emailbutton" type="button">email-exec</button><br/>
+	Phone:<input id="phoneinput" type="text"/><button id="phonebutton" type="button">phone-exec</button>
+</body>
+</html>
